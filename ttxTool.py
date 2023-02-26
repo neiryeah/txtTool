@@ -204,7 +204,7 @@ while True:
     print(Fore.LIGHTBLACK_EX + "\n\n######################################--Made by ne1ry#1881, from ttClient, txtTool --##############\n\n\n")
 
     print(Fore.YELLOW + "                   Kılıç slotunuz: " + Fore.RED +"[" + Fore.MAGENTA + str(kilicSlot) + Fore.RED +"]" + Fore.YELLOW +" Blok Slotunuz: " +Fore.RED +"[" + Fore.MAGENTA + str(blokSlot) + Fore.RED +"]" + Fore.YELLOW +" Olta Slotunuz: " + Fore.RED +"[" + Fore.MAGENTA + str(oltaSlot) + Fore.RED +"]\n\n")
-
+    
 
     print(Fore.BLUE + "                       HIT MAKRO TUŞU: " + Fore.RED +"[" + Fore.MAGENTA + str(hitTus).upper() + Fore.RED +"] " + Fore.BLUE + "HIT DELAY: " + Fore.RED +"["+ Fore.MAGENTA +  str(hitMakrosuDelay) + Fore.RED +"]"  )
 
@@ -221,7 +221,7 @@ while True:
                
     # //Buralar makroların çalışma kısmı.
 
-
+    blokSlot = blokSlot + 1
     while True:
         if hitMakrosu == 1:
             if keyboard.is_pressed(hitTus):
@@ -231,10 +231,14 @@ while True:
                 time.sleep(hitMakrosuDelay / 2.2)
         if blokMakrosu == 1:
             if keyboard.is_pressed(blokTus):
+                keyboard.press(blokSlot)
+                keyboard.release(blokSlot)
                 mouse.press(Button.right)
                 time.sleep(blokMakrosuDelay / 2.1)
                 mouse.release(Button.right)
                 time.sleep(blokMakrosuDelay / 2.2 )
+                keyboard.press(kilicSlot)
+                keyboard.release(kilicSlot)
         if oltaMakrosu == 1:
             if keyboard.is_pressed(oltaTus):
                 keyboard.press(oltaSlot)
